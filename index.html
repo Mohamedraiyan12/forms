@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dhhb</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="form-container">
+    <form action="#"  id="userdetailform" method="post">
+        <label for="usename">Username:</label>
+        <input type="text" name="username" id="name" placeholder="enter your name"><br><br>
+
+        <label for="mobileno">mobile no:</label>
+        <input type ="number" name="contactno" id="contactno"><br><br>
+
+        <label for="email">Email:</label>
+        <input type ="email" name="email" id="email"><br><br>
+         <label for="gender">Gender</label>
+        <select id="gender">
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option>
+        </select><br><br>
+        <label for="favourite">languages known:</label><br>
+        <input type="checkbox" name="lg" id="html" value="html"><label for="html">html</label><br>
+        <input type="checkbox" name="lg" id="css" value="css"><label for="css">css</label><br>
+        <input type="checkbox" name="lg" id="js" value="js"><label for="js">js</label><br>
+        <input type="submit"  id="submit" value="sumbit">
+    </form>
+</div>
+    <script>
+    const forms = document.getElementById("userdetailform");
+
+    forms.addEventListener("submit", function(event) {
+    event.preventDefault();
+    
+    const username = document.getElementById("name").value;
+    const mnumber = document.getElementById("contactno").value;
+    const email = document.getElementById("email").value;
+    const gender = document.getElementById("gender").value;
+
+    const languages = [];
+    const checkboxes = document.querySelectorAll('input[name ="lg"]:checked');
+    checkboxes.forEach(function (checkbox) {
+        languages.push(checkbox.value);
+    });
+
+    if (! username|| !email || !mnumber ) {
+        alert("Username, Last Name, and Email,mobile number are important so you must fill.");
+        return;
+    }
+        document.write("Username: " + username);document.write("<br/>")
+        // alert("Last Name: " + lastname);document.write("<br/>")
+        document.write(" Mobile no:" + mnumber);document.write("<br/>")
+        document.write("Email: " + email);document.write("<br/>")
+        document.write("Gender: " + gender);document.write("<br/>")
+        document.write("languages: " + languages.join(", "));
+}); 
+
+</script>
+</body>
+</html>
